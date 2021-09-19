@@ -1,0 +1,16 @@
+From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
+13;1690;sea;1019;655;3096;668;3105;Slemish-Arran
+14;1684;sea;1019;677;3055;700;3064;Carrickfergus-Wigtown
+35;1691;sea;696;671;3198;674;3203;Mull-Ardnamurchon
+1504;1515;river_large;628;-1;-1;-1;-1;Rochester-Maldon
+1527;1526;river_large;629;948;2791;-1;-1;London-Southwark
+1546;1549;sea;966;877;2730;880;2735;Portsmouth-Carisbrooke
+1667;1673;sea;1019;725;2933;730;2930;Caernarfon-Yns Mon
+1684;1699;sea;1019;724;3059;729;3032;Wigtown-Ramsey
+1692;1693;sea;992;660;3288;653;3305;Skye-Lewis
+1692;1694;sea;696;638;3272;621;3279;Skye-Uists
+1693;1694;sea;992;628;3294;622;3289;Lewis-Uists
+1690;1689;sea;700;660;3132;675;3127;Arran-Islay
+1689;1691;sea;700;656;3154;667;3180;Islay-Mull
+1707;8;sea;693;820;3357;830;3369;Thurso-Kirkwall
+1711;1692;sea;696;680;3241;686;3239;Glenfinnan-Skye
