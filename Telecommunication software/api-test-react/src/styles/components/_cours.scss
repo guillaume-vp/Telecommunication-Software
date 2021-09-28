@@ -1,0 +1,18 @@
+.cours {
+    //display: flex;
+    position: relative;
+
+    h2{
+        color: black;
+    }
+
+    .description{
+        display: flex;
+            position: relative;
+            margin-left: 50px;
+            li{
+                font-size: larger;
+            }
+        }
+
+}

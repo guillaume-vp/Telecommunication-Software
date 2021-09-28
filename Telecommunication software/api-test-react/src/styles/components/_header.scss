@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    position: relative;
+    height: 160px;
+    width: 100%;
+    background: rgb(245, 245, 245);
+    box-shadow: 5px 5px brown;
+    margin: 0;
+    padding: 0;
+
+    h1{
+        position: relative;
+        color: brown;
+        top: 20%;
+        left: 40%;
+        transform: translateX(-50%);
+    }
+
+    img {
+        height: 75%;
+        margin: 15px 0 0 15px;
+        box-shadow: 2px 2px 2px 2px black;
+      }
+}
