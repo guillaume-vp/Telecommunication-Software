@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import axios from "axios";
 import Chart2 from './Chart2';
 import Chart from './Chart';
+import Plot from './Plot';
 
 const Cours = () => {
 
@@ -28,12 +29,12 @@ const [data, setData] = useState([]);
                 <ul>
                     <li>Course n°{data.course}</li>
                     <li>Year : {data.releaseYear}</li>
-                    <li>Date : {data.date && DateFormat(data.date)}</li>
-                    <li>{data.scores ? data.scores.a:''}</li>
+                    <li>Date : {data.date && DateFormat(data.date)}</li>     
                 </ul>
-                <Chart scores={data.scores ? data.scores:[]} key='scores'/>
-
-            </div>
+                <p>{'\n\n\n\n'}</p>
+                <Chart scores={data.scores} key='scores'/>
+                <Plot someData={data.someData} key='someData'/>
+           </div>
 
 
         </div>

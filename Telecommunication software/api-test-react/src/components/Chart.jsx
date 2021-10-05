@@ -5,21 +5,17 @@ import { render } from '@testing-library/react';
 const Chart = (props) => {
     const {scores} = props
     const ref = useRef()
-    const [data, setData] = useState([20,80,150]);
-    //const data = [20,160,80]; 
-    //const data = [scores.a,scores.b,scores.c]; 
 
 
     const w = 400;
     const h = 300;
     useEffect(() => {
-        
-        if(scores.a)
-        {
-            console.log('in');
-            console.log([scores.a,scores.b,scores.c]);
-            setData([scores.a,scores.b,scores.c]);
-            console.log(data)
+        if(scores){
+            var dlist = Object.entries(scores);
+
+            var y = d3.scaleLinear().domain([0,125]).range([h-40,0]);
+            var yAxis = d3.axisLeft(y).ticks(10);
+
             const svg = d3.select(ref.current)
             .attr("width", w)
             .attr("height", h)
@@ -28,17 +24,44 @@ const Chart = (props) => {
             .style("padding", 15)
             .style("margin-left", 50);
 
-            svg
-            .selectAll("rect")
-            .data(data)
-            .enter()
-            .append("rect")
-            .attr("x", (d,i) => i *150)
-            .attr("y", (d,i) => h-d)
-            .attr("width", 80)
-            .attr("height", (d,i) => d*1.5)
-            .attr("fill", (d,i) => d > 35 ? "green" : "yellow");
+            svg.append("g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(25, 30 )")
+            .call(yAxis);
 
+            var barchart = svg
+            .selectAll()
+            .data(Object.entries(scores))
+            .enter()
+            .append('g')
+
+            barchart
+            .append("rect")
+            .attr('class', 'bar')
+            .attr("transform", "translate(50, 0 )")
+            .attr("x", ([k,v],i) => i *130)
+            .attr("y", ([k,v],i) => h-v*2-10)
+            .attr("width", 80)
+            .attr("height", ([k,v])=> v*2)
+            .attr("fill", ([k,v]) => k=='a'?'blue':k=='b'?'darkturquoise':'green');
+
+
+            barchart
+            .append('text')
+            .attr("transform", "translate(50, 30 )")
+            .style("fill", "white")
+            .style("font-size", '30px')
+            .attr("height", 200)
+            .attr("width", 200)
+            .attr('x', (d,i) => i*130+30)
+            .attr('y', ([k,v]) => h-v*2)
+            .text(([k,v])=> k);
+
+
+
+
+
+            console.log(Object.entries(scores));
 
         }
 
@@ -48,11 +71,6 @@ const Chart = (props) => {
 
     return (
         <div className="chart">
-            <ul className='score_chart'>
-                <li>{scores.a}</li>
-                <li>{scores.b}</li>
-                <li>{scores.c}</li>
-            </ul>
             <svg ref={ref}></svg>
         </div>
     );
